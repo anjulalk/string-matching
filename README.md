@@ -24,7 +24,7 @@ The input database and query files will have the same format. Each sequence will
 
 **Example DNA Database:**
 
-\&gt;DB description string 1
+DB description string 1
 
 AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGCTTCTGAACT
 
@@ -32,7 +32,7 @@ GGTTACCTGCCGTGAGTAAATTAAAATTTTATTGACTTAGGTCACTAAATACTTTAACCAATATAGGCATAGCGCACAG
 
 ACAGATAAAAATTACA
 
-\&gt;DB description string 2
+DB description string 2
 
 AACGGTGCGGGCTGACGCGTACAGGAAACACAGAAAAAAGCCCGCACCTGACAGTGCGGGCTTTTTTTTTCGACCAAAG
 
@@ -40,29 +40,29 @@ GTAACGAGGTAACAACCATGCGAGTGTTGAAGTTCGGCGGTACATCAGTGGCAAATGCAGAACGTTTTCTGCGTGTTGC
 
 CGATATTCTGGAAAGCAATGC
 
-\&gt;EOF
+EOF
 
 \* **The corresponding DNA database file would be uploaded to the LMS along with this assignment.**
 
 **Example query base:**
 
-\&gt;Query description string 1
+Query description string 1
 
 CATTCTGACTGCAA
 
-\&gt;Query description string 2
+Query description string 2
 
 AAAAAAG
 
-\&gt;Query description string 3
+Query description string 3
 
 GTAA
 
-\&gt;Query description string 4
+Query description string 4
 
 AGAGAGAGAGAGAGAGAGAGAGAGAGAGAG
 
-\&gt;EOF
+EOF
 
 **Example output:**
 
