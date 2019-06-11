@@ -19,31 +19,32 @@ def main():
     # Keys are the DNA descriptions and values are the actual DNA strings
     dnaDatabase, queryBase = generateDict(dnaDatabaseFile), generateDict(queryBaseFile)
 
-    # Iterate over dnaDatabase
-    for a,b in dnaDatabase.items():
-        # Write the description
+    # Iterate over queryBase
+    for a,b in queryBase.items():
+        # Write the description of query
         outputFile.write("{}\n".format(a))
         
-        # Detect if there was a match
+        # Detect if there was at lease one match
         # If there was at least one match
-        # should not output 'NOT FOUND'
+        # it should not write 'NOT FOUND'
         foundSwitch = False 
         
-        # Iterate over queryBase
-        for m,n in queryBase.items():
+        # Iterate over dnaDatabase
+        for m,n in dnaDatabase.items():
             # Get the index which the pattern first matches
-            match = kmpFn(b, n)
+            match = kmpFn(n, b)
             if match!=-1:
-                # At least one matche is found. flip!
-                # Will not print 'NOT FOUND' at the end
+                # At least one match is found. FLIP!
                 foundSwitch = True
-                outputFile.write("[{}] at offset {}\n".format(m, match)) #only output first occurence
+                outputFile.write("[{}] at offset {}\n".format(m, match)) # Only output first occurence
         if foundSwitch==False:
             # Means no matches found 
             outputFile.write('NOT FOUND\n')
         outputFile.write('\n')
     outputFile.close()
 
+# Generates a dictionary for easy retireval
+# Key -> Title, Value -> DNA Sequence
 def generateDict(file):
     dict, desc = {}, ''
     for line in file:

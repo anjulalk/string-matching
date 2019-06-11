@@ -1,62 +1,25 @@
-KJ668651.1 Tetraselmis subcordiformis transgenic GFP (gfp) gene
-[Query description string 3] at offset 173
-
-U50974.1 Cloning vector pFW gfp gene
+Query description string 1
 NOT FOUND
 
-LN515608.1 Synthetic construct for Aequorea victoria partial gfp gene for GFP
-[Query description string 3] at offset 1
+Query description string 2
+[KF040389.1 Cloning vector pCN-LYS21-GFP] at offset 348
+[AB262455.1 Transposon vector T2AL200L200G DNA] at offset 131
 
-MF461355.1 Plastid transformation vector pATV1
+Query description string 3
+[KJ668651.1 Tetraselmis subcordiformis transgenic GFP (gfp) gene] at offset 173
+[LN515608.1 Synthetic construct for Aequorea victoria partial gfp gene for GFP] at offset 1
+[KU306402.1 Cloning vector pJV53-GFP] at offset 166
+[MK371209.1 Synthetic construct clone Sp_4004H24 sequence] at offset 102
+[MK371208.1 Synthetic construct clone Sp_44J22 sequence] at offset 37
+[KF040393.1 Cloning vector pCN-MET3-GFP] at offset 70
+[KF040389.1 Cloning vector pCN-LYS21-GFP] at offset 70
+[GQ889498.1 Recombineering donor plasmid pDOC-G] at offset 290
+[EF143813.2 Expression vector pCeMM-NTAP(GS)-Gw] at offset 9
+[AB262455.1 Transposon vector T2AL200L200G DNA] at offset 7
+[EU483152.1 Shuttle vector pMQ122] at offset 292
+[MK753227.1 Escherichia coli str] at offset 82
+[HM151400.1 GFP expression vector pHapII] at offset 70
+
+Query description string 4
 NOT FOUND
-
-KU306402.1 Cloning vector pJV53-GFP
-[Query description string 3] at offset 166
-
-AF286455.1 Promoter probe vector
-NOT FOUND
-
-MK371210.1 Synthetic construct clone
-NOT FOUND
-
-MK371209.1 Synthetic construct clone Sp_4004H24 sequence
-[Query description string 3] at offset 102
-
-MK371208.1 Synthetic construct clone Sp_44J22 sequence
-[Query description string 3] at offset 37
-
-KF040393.1 Cloning vector pCN-MET3-GFP
-[Query description string 3] at offset 70
-
-KF040389.1 Cloning vector pCN-LYS21-GFP
-[Query description string 2] at offset 348
-[Query description string 3] at offset 70
-
-JX445134.1 Insertion vector scAAV-CMV-GFP
-NOT FOUND
-
-AF286454.1 Promoter probe vector pPROBE-NT'
-NOT FOUND
-
-FJ455409.1 Fusion vector pFRT2-gfp-Tel
-NOT FOUND
-
-GQ889498.1 Recombineering donor plasmid pDOC-G
-[Query description string 3] at offset 290
-
-EF143813.2 Expression vector pCeMM-NTAP(GS)-Gw
-[Query description string 3] at offset 9
-
-AB262455.1 Transposon vector T2AL200L200G DNA
-[Query description string 2] at offset 131
-[Query description string 3] at offset 7
-
-EU483152.1 Shuttle vector pMQ122
-[Query description string 3] at offset 292
-
-MK753227.1 Escherichia coli str
-[Query description string 3] at offset 82
-
-HM151400.1 GFP expression vector pHapII
-[Query description string 3] at offset 70
 
