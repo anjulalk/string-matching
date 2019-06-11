@@ -1,49 +1,50 @@
 #!/usr/bin/env python3
 def main():
-    #open database input files
+    #open DNA database and query base files
     try:
-        dnaDBFile = open('DNA Database.txt', 'r')
-        queryDBFile = open('querybase.txt', 'r')
+        dnaDatabaseFile = open('DNA Database.txt', 'r')
+        queryBaseFile = open('querybase.txt', 'r')
     except IOError:
-        print("ERROR: Check if 'DNA Database.txt and 'querybase.txt' files exist!")
+        print("ERROR: 'DNA Database.txt or 'querybase.txt' files doesn't exist!")
         return 1
     
     #open output text file
     try:
         outputFile = open('output.txt', 'w+')
     except IOError:
-        print("ERROR: Could not write to 'output.txt' file!")
+        print("ERROR: Can't write to 'output.txt' file!")
         return 2
 
-    
-    #populate dnaDB and queryDB dictionaries from dnaDBFile and queryDBFile text files
-    #keys are descriptors and values are the actual strings
-    dnaDB, queryDB = populateDB(dnaDBFile), populateDB(queryDBFile)
+    #genereate dnaDatabase and queryBase dictionaries
+    #from dnaDatabaseFile and queryBaseFile text files
+    #keys are descriptions and values are the actual strings
+    dnaDatabase, queryBase = populateDict(dnaDatabaseFile), populateDict(queryBaseFile)
 
-    #iterate over dnaDB
-    for a,b in dnaDB.items():
-        #print(a)
-        outputFile.write("%s\n"%a)
-        switch = False #detect if there was a match
-        for m,n in queryDB.items():
-            matches = kmpFn(b, n)
-            if len(matches)!=0:
-                #print('[' + n + '] at offset ', end='')
-                outputFile.write("[%s] at offset"%n)
-                for match in matches:
-                    #print(match, end=' ')
-                    outputFile.write(" %d"%match)
-                    switch = True
-                #print()
-                outputFile.write('\n')
+    #iterate over dnaDatabase
+    for a,b in dnaDatabase.items():
+        outputFile.write("{}\n".format(a))
+        
+        #detect if there was a match
+        #if there was at least one match
+        #should not output 'NOT FOUND'
+        switch = False 
+        
+        #iterate over queryBase
+        for m,n in queryBase.items():
+            #get the index which the pattern matches
+            match = kmpFn(b, n)
+            if match!=-1:
+                #at least one matche is found. flip!
+                #will not print 'NOT FOUND' at the end
+                switch = True
+                outputFile.write("[{}] at offset {}\n".format(n, match)) #only output first occurence
         if switch==False:
             #means no matches found 
-            #print('NOT FOUND')
             outputFile.write('NOT FOUND\n')
         outputFile.write('\n')
     outputFile.close()
 
-def populateDB(file):
+def populateDict(file):
     dict, desc = {}, ''
     for line in file:
         #check if line contains title
@@ -59,8 +60,10 @@ def populateDB(file):
     return dict
 
 def kmpFn(t, p):
+    #returns the first index which the pattern matches
+    #else returns -1
 	n, m = len(t), len(p)
-	matches, k = [], 0
+	k = 0
 	prefix = prefixFn(p)
 
 	for i in range(n):
@@ -69,11 +72,11 @@ def kmpFn(t, p):
 		if t[i]==p[k]:
 			k += 1
 		if k==m:
-			matches.append(i-(k-1))
-			k = prefix[k-1]
-	return matches
+			return(i-(k-1))
+	return -1
 
 def prefixFn(p):
+    #generates prefix list for kmpFn
 	m = len(p)
 	prefix = [0]*m
 	k = 0

@@ -1,5 +1,5 @@
 KJ668651.1 Tetraselmis subcordiformis transgenic GFP (gfp) gene
-[GTAA] at offset 173 213
+[GTAA] at offset 173
 
 U50974.1 Cloning vector pFW gfp gene
 NOT FOUND
@@ -23,7 +23,7 @@ MK371209.1 Synthetic construct clone Sp_4004H24 sequence
 [GTAA] at offset 102
 
 MK371208.1 Synthetic construct clone Sp_44J22 sequence
-[GTAA] at offset 37 240 446
+[GTAA] at offset 37
 
 KF040393.1 Cloning vector pCN-MET3-GFP
 [GTAA] at offset 70
@@ -42,21 +42,21 @@ FJ455409.1 Fusion vector pFRT2-gfp-Tel
 NOT FOUND
 
 GQ889498.1 Recombineering donor plasmid pDOC-G
-[GTAA] at offset 290 354
+[GTAA] at offset 290
 
 EF143813.2 Expression vector pCeMM-NTAP(GS)-Gw
 [GTAA] at offset 9
 
 AB262455.1 Transposon vector T2AL200L200G DNA
 [AAAAAAG] at offset 131
-[GTAA] at offset 7 20 251
+[GTAA] at offset 7
 
 EU483152.1 Shuttle vector pMQ122
 [GTAA] at offset 292
 
 MK753227.1 Escherichia coli str
-[GTAA] at offset 82 171 185
+[GTAA] at offset 82
 
 HM151400.1 GFP expression vector pHapII
-[GTAA] at offset 70 212
+[GTAA] at offset 70
 
