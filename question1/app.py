@@ -17,10 +17,11 @@ def main(argv):
 	except IOError:
 		print("ERROR: Couldn't write into output file!")
 		return 3
-	
+	patternMatch(textFile, patternFile, outputFile)
+
+def patternMatch(textFile, patternFile, outputFile):
 	text, pattern = textFile.readline().strip('\n '), patternFile.readline().strip('\n ')
 	text_length, pattern_length = len(text), len(pattern)
-	#n, m = len(t), len(p)
 	for i in range(text_length-pattern_length+1):
 		j = 0
 		for j in range(pattern_length):
@@ -29,6 +30,7 @@ def main(argv):
 				break
 		if (j == pattern_length-1):
 			outputFile.write('{} '.format(i))
+	outputFile.close()
 
 if __name__=='__main__':
 	main(sys.argv)
