@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 def main():
-	t = 'abcaabababaabaca'
-	p = 'abcdabca'
+	t = 'abcaaaaaabababaabaca'
+	p = 'aaa'
 	kmpMatch(t,p)
 
 def kmpMatch(t, p):
@@ -10,14 +10,15 @@ def kmpMatch(t, p):
 	prefix = prefixFn(p)
 	matches = []
 	k = 0
-        for i in range(n):
-		while k>0 and T[i]!=P[k]:
+	for i in range(n):
+		while k>0 and t[i]!=p[k]:
 			k = prefix[k-1]
 		if t[i]==p[k]:
 			k += 1
-		if j==m:
+		if k==m:
 			matches.append(i-(k-1))
-			k = 0    
+			k = prefix[k-1]    
+	print(t,matches)	
 	return matches
 	
 
@@ -32,7 +33,6 @@ def prefixFn(p):
 		if p[k]==p[q]:
 			k+=1
 		prefix[q]=k
-	print(p,prefix)
 	return prefix
 
 if __name__=='__main__':
