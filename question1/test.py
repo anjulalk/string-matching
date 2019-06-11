@@ -2,8 +2,6 @@
 import app
 
 def main():
-    testPassCount = 0
-
     # Number of test cases
     testCount = 10
 
@@ -17,8 +15,9 @@ def main():
     outputFilePaths = ['./testdata/patternmatch1.output', './testdata/patternmatch2.output', './testdata/patternmatch3.output', './testdata/patternmatch4.output', './testdata/patternmatch5.output', './testdata/patternmatch6.output', './testdata/patternmatch7.output', './testdata/patternmatch8.output', './testdata/patternmatch9.output', './testdata/patternmatch10.output']
     
     # List of expected/correct outputs for the respective files
-    expectedOutputs = ['0 8', '29', '153', '9', '', '', '', '', '', '', ]
+    expectedOutputs = ['0 8', '29', '153', '9', '0', '59', '4 8 21 29 46 62', '', '257', '230']
 
+    testPassCount = 0
     for i in range(testCount):
         # Retrieve respective file paths from the lists
         textFilePath, patternFilePath, outputFilePath = textFilePaths[i], patternFilePaths[i], outputFilePaths[i]
@@ -46,12 +45,12 @@ def main():
             print("ERROR: Couldn't read output file!")
         
         print('Expected: {}'.format(expectedOutputs[i]))
-        
+
         if (expectedOutputs[i]==output):
-            print('PASS')
+            print('PASS\n')
             testPassCount += 1
         else:
-            print('FAIL')
+            print('FAIL\n')
         
         # Close files
         textFile.close()

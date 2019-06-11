@@ -1,70 +1,68 @@
 #!/usr/bin/env python3
 def main():
-    #open DNA database and query base files
+    # Try to open DNA database and query base files
     try:
-        dnaDatabaseFile = open('DNA Database.txt', 'r')
-        queryBaseFile = open('querybase.txt', 'r')
+        dnaDatabaseFile, queryBaseFile = open('DNA Database.txt', 'r'), open('querybase.txt', 'r')
     except IOError:
         print("ERROR: 'DNA Database.txt or 'querybase.txt' files doesn't exist!")
         return 1
     
-    #open output text file
+    # Try to open output text file
     try:
         outputFile = open('output.txt', 'w+')
     except IOError:
         print("ERROR: Can't write to 'output.txt' file!")
         return 2
 
-    #genereate dnaDatabase and queryBase dictionaries
-    #from dnaDatabaseFile and queryBaseFile text files
-    #keys are descriptions and values are the actual strings
-    dnaDatabase, queryBase = populateDict(dnaDatabaseFile), populateDict(queryBaseFile)
+    # Genereate dnaDatabase and queryBase dictionaries
+    # from dnaDatabaseFile and queryBaseFile text files
+    # Keys are the DNA descriptions and values are the actual DNA strings
+    dnaDatabase, queryBase = generateDict(dnaDatabaseFile), generateDict(queryBaseFile)
 
-    #iterate over dnaDatabase
+    # Iterate over dnaDatabase
     for a,b in dnaDatabase.items():
+        # Write the description
         outputFile.write("{}\n".format(a))
         
-        #detect if there was a match
-        #if there was at least one match
-        #should not output 'NOT FOUND'
-        switch = False 
+        # Detect if there was a match
+        # If there was at least one match
+        # should not output 'NOT FOUND'
+        foundSwitch = False 
         
-        #iterate over queryBase
+        # Iterate over queryBase
         for m,n in queryBase.items():
-            #get the index which the pattern matches
+            # Get the index which the pattern first matches
             match = kmpFn(b, n)
             if match!=-1:
-                #at least one matche is found. flip!
-                #will not print 'NOT FOUND' at the end
-                switch = True
-                outputFile.write("[{}] at offset {}\n".format(n, match)) #only output first occurence
-        if switch==False:
-            #means no matches found 
+                # At least one matche is found. flip!
+                # Will not print 'NOT FOUND' at the end
+                foundSwitch = True
+                outputFile.write("[{}] at offset {}\n".format(m, match)) #only output first occurence
+        if foundSwitch==False:
+            # Means no matches found 
             outputFile.write('NOT FOUND\n')
         outputFile.write('\n')
     outputFile.close()
 
-def populateDict(file):
+def generateDict(file):
     dict, desc = {}, ''
     for line in file:
-        #check if line contains title
+        # Check if line contains title
         if line[0]=='>':
-            #retrieve the actual title
-            desc = line.strip('>\n')
+            # Retrieve the actual title
+            desc = line.strip('>\n ')
             if desc != 'EOF':
-                #add to dictionary as key
+                # Add to dictionary as key
                 dict[desc] = ''
         else:
-            #concatenate to the value of previously read key
+            # Concatenate to the value of previously read key
             dict[desc] = dict[desc] + line.strip('\n ')
     return dict
 
 def kmpFn(t, p):
-    #returns the first index which the pattern matches
-    #else returns -1
-	n, m = len(t), len(p)
-	k = 0
-	prefix = prefixFn(p)
+    # Returns the first index which the pattern matches
+    # Else returns -1
+	n, m, k, prefix = len(t), len(p), 0, prefixFn(p)
 
 	for i in range(n):
 		while k>0 and t[i]!=p[k]:
@@ -76,7 +74,7 @@ def kmpFn(t, p):
 	return -1
 
 def prefixFn(p):
-    #generates prefix list for kmpFn
+    # Returns prefix table list for kmpFn
 	m = len(p)
 	prefix = [0]*m
 	k = 0

@@ -36,7 +36,6 @@ def main(argv):
 def patternMatch(textFile, patternFile, outputFile):
 	# Get the contents of text and pattern files to respective string variables
 	text, pattern = textFile.readline().strip('\n '), patternFile.readline().strip('\n ')
-	
 	text_length, pattern_length = len(text), len(pattern)
 	
 	# Iterate over the text
@@ -45,7 +44,7 @@ def patternMatch(textFile, patternFile, outputFile):
 		for j in range(pattern_length): # Iterate over the pattern
 			if text[i+j] != pattern[j] and pattern[j] != '_': 
 				# MISMATCH!
-				j -= 1 # Decrement j by one so the current character is ignored
+				j -= 1 # Decrement j by one so the current character position is ignored
 				break
 		if (j == pattern_length-1): # Checks if pattern is complete
 			outputFile.write('{} '.format(i))
