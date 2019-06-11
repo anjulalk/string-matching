@@ -1,9 +1,26 @@
 #!/usr/bin/env python3
 def main():
-	t = 'abcaaaaaabababaabaca'
-	p = 'aaa'
-	kmpMatch(t,p)
+	t = 'aabcdefabcd'
+	p = 'a_c'
 
+	Q = {}
+	q = p.strip().split('_')
+	k = len(q)
+	for i in range(k):
+		_p = q[i]
+		Q[_p] = kmpMatch(t, _p)
+
+	for i in range(k):
+		p = q[i]
+		occ = Q[p]
+		for j in occ:
+			n = j+len(p)
+			print(q[i+1], n)
+	print(Q)
+	
+		
+		
+		
 def kmpMatch(t, p):
 	m = len(p)
 	n = len(t)
@@ -18,7 +35,7 @@ def kmpMatch(t, p):
 		if k==m:
 			matches.append(i-(k-1))
 			k = prefix[k-1]    
-	print(t,matches)	
+	print(t,p, matches)	
 	return matches
 	
 
