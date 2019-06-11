@@ -1,48 +1,68 @@
 #!/usr/bin/env python3
 def main():
-    dnaDBFile = open('DNA Database.txt', 'r')
-    dnaDB = {}
+    #open database input files
+    try:
+        dnaDBFile = open('DNA Database.txt', 'r')
+        queryDBFile = open('querybase.txt', 'r')
+    except IOError:
+        print("ERROR: Check if 'DNA Database.txt and 'querybase.txt' files exist!")
+        return 1
+    
+    #open output text file
+    try:
+        outputFile = open('output.txt', 'w+')
+    except IOError:
+        print("ERROR: Could not write to 'output.txt' file!")
+        return 2
 
-    #populate dnaDB dictionary from dnaDBFile text file
-    for line in dnaDBFile:
-        global desc
+    
+    #populate dnaDB and queryDB dictionaries from dnaDBFile and queryDBFile text files
+    #keys are descriptors and values are the actual strings
+    dnaDB, queryDB = populateDB(dnaDBFile), populateDB(queryDBFile)
+
+    #iterate over dnaDB
+    for a,b in dnaDB.items():
+        #print(a)
+        outputFile.write("%s\n"%a)
+        switch = False #detect if there was a match
+        for m,n in queryDB.items():
+            matches = kmpFn(b, n)
+            if len(matches)!=0:
+                #print('[' + n + '] at offset ', end='')
+                outputFile.write("[%s] at offset"%n)
+                for match in matches:
+                    #print(match, end=' ')
+                    outputFile.write(" %d"%match)
+                    switch = True
+                #print()
+                outputFile.write('\n')
+        if switch==False:
+            #means no matches found 
+            #print('NOT FOUND')
+            outputFile.write('NOT FOUND\n')
+        outputFile.write('\n')
+    outputFile.close()
+
+def populateDB(file):
+    dict, desc = {}, ''
+    for line in file:
+        #check if line contains title
         if line[0]=='>':
+            #retrieve the actual title
             desc = line.strip('>\n')
             if desc != 'EOF':
-                dnaDB[desc] = ''
+                #add to dictionary as key
+                dict[desc] = ''
         else:
-            dnaDB[desc] = dnaDB[desc] + line.strip('\n ')
-    
-    queryDBFile = open('querybase.txt', 'r')
-    queryDB = {}
-    #populate queryDB dictionary from queryDBFile text file
-    for line in queryDBFile:
-        global qdesc
-        if line[0]=='>':
-            qdesc = line.strip('>\n')
-            if qdesc != 'EOF':
-                queryDB[qdesc] = ''
-        else:
-            queryDB[qdesc] = queryDB[qdesc] + line.strip('\n ')
-    
-    for a,b in dnaDB.items():
-        print(a)
-        for m,n in queryDB.items():
-            matches = kmpMatch(b, n)
-            if len(matches)==0:
-                print('NOT FOUND')
-            else:
-                print('[' + n + '] at offset ', end='')
-                for match in matches:
-                    print(match, end=' ')
-                print()
+            #concatenate to the value of previously read key
+            dict[desc] = dict[desc] + line.strip('\n ')
+    return dict
 
-def kmpMatch(t, p):
-	n = len(t)
-	m = len(p)
+def kmpFn(t, p):
+	n, m = len(t), len(p)
+	matches, k = [], 0
 	prefix = prefixFn(p)
-	matches = []
-	k = 0
+
 	for i in range(n):
 		while k>0 and t[i]!=p[k]:
 			k = prefix[k-1]
