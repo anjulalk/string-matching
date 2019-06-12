@@ -1,3 +1,11 @@
-EXPLANATION
+USAGE
+--------------------------------------------------------------------------------
+Linux: ./app.py
+Windows: python app.py
 
-The code is written in Python 3.7
+EXPLAINATION
+--------------------------------------------------------------------------------
+The program exectes when the command is typed into the terminal
+It then tries to open the DNA Database,  querybase and output files. If the files were not found it halts and returns an exit code
+Then the DB Database string and the DNA string is stored into a python dictionary
+The program then iterates over the querybase and detects if there are any matches
