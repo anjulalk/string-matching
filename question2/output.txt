@@ -1,24 +1,24 @@
-Query description string 1
-NOT FOUND
+Query description string 3
+[MK753227.1 Escherichia coli str] at offset 82
+[MK371209.1 Synthetic construct clone Sp_4004H24 sequence] at offset 102
+[KU306402.1 Cloning vector pJV53-GFP] at offset 166
+[KF040393.1 Cloning vector pCN-MET3-GFP] at offset 70
+[EU483152.1 Shuttle vector pMQ122] at offset 292
+[AB262455.1 Transposon vector T2AL200L200G DNA] at offset 7
+[LN515608.1 Synthetic construct for Aequorea victoria partial gfp gene for GFP] at offset 1
+[MK371208.1 Synthetic construct clone Sp_44J22 sequence] at offset 37
+[KF040389.1 Cloning vector pCN-LYS21-GFP] at offset 70
+[EF143813.2 Expression vector pCeMM-NTAP(GS)-Gw] at offset 9
+[GQ889498.1 Recombineering donor plasmid pDOC-G] at offset 290
+[KJ668651.1 Tetraselmis subcordiformis transgenic GFP (gfp) gene] at offset 173
+[HM151400.1 GFP expression vector pHapII] at offset 70
 
 Query description string 2
-[KF040389.1 Cloning vector pCN-LYS21-GFP] at offset 348
 [AB262455.1 Transposon vector T2AL200L200G DNA] at offset 131
+[KF040389.1 Cloning vector pCN-LYS21-GFP] at offset 348
 
-Query description string 3
-[KJ668651.1 Tetraselmis subcordiformis transgenic GFP (gfp) gene] at offset 173
-[LN515608.1 Synthetic construct for Aequorea victoria partial gfp gene for GFP] at offset 1
-[KU306402.1 Cloning vector pJV53-GFP] at offset 166
-[MK371209.1 Synthetic construct clone Sp_4004H24 sequence] at offset 102
-[MK371208.1 Synthetic construct clone Sp_44J22 sequence] at offset 37
-[KF040393.1 Cloning vector pCN-MET3-GFP] at offset 70
-[KF040389.1 Cloning vector pCN-LYS21-GFP] at offset 70
-[GQ889498.1 Recombineering donor plasmid pDOC-G] at offset 290
-[EF143813.2 Expression vector pCeMM-NTAP(GS)-Gw] at offset 9
-[AB262455.1 Transposon vector T2AL200L200G DNA] at offset 7
-[EU483152.1 Shuttle vector pMQ122] at offset 292
-[MK753227.1 Escherichia coli str] at offset 82
-[HM151400.1 GFP expression vector pHapII] at offset 70
+Query description string 1
+NOT FOUND
 
 Query description string 4
 NOT FOUND
